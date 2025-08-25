@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="css/signin.css">
+</head>
+<body>
+
+    <div class="container">
+            <div class="heading-container"><h2 class="heading-text">Admin <span id="log">LogIn</span></h2></div>
+            <div class="form-container">
+                <form action="/adminLogin" method="post">
+                    <input type="text" name="adminEmail" placeholder="Email" required>
+                    <input type="password" name="adminPassword" placeholder="Password" autocomplete="off" required>
+                    <button type="submit">LogIn</button>
+                    <a href="/">Student?</a>
+                </form>
+                <% if (messages.error) { %>
+                    <p class="message" style="color: red;"><%= messages.error %></p>
+                  <% }  %>
+                    
+            </div>
+    </div>
+    
+</body>
+</html>

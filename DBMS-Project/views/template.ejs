@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            height: 30rem;
+            width: 60rem;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: orange;
+            height: 70%;
+            width: 85%;
+            border-radius: 10px;
+        }
+        img{
+            height: 200px;
+            width: 200px;
+        }
+        .cardContainer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .detailscontainer{
+            display: flex;
+            justify-content: space-around;
+            align-items: start;
+            flex-direction: column;
+            line-height: 2rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="cardContainer " >
+            <div class="imgcontainer">
+                <img src="data:image/png;base64,<%= imageData %>" alt="My Image">
+
+            </div>
+            <div class="detailscontainer">
+                <h2>Name :<span>
+                        <%= fname%>
+                            <%= lname%>
+                    </span></h2>
+                <h3>Email :<span>
+                        <%= email %>
+                    </span></h3>
+                <h3>Contact :<span>
+                        <%= pnumber %>
+                    </span></h3>
+                <h3>Address :<span>
+                        <%= address %>
+                    </span></h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

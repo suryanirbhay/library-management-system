@@ -1,0 +1,371 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+
+}
+body {
+	/* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+    /* background: linear-gradient(-45deg, #ee7752, #23a6d5, #ee7752, #23a6d5); */
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+html {
+    height:100%;
+}
+ 
+body {
+    margin:0;
+}
+ 
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+}
+ 
+.bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+}
+ 
+.bg3 {
+    animation-duration:5s;
+}
+ 
+.content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+}
+ 
+h1 {
+    font-family:monospace;
+}
+ 
+@keyframes slide {
+    0% {
+        transform:translateX(-25%);
+    }
+ 
+    100% {
+        transform:translateX(25%);
+    }
+}
+.heading3text{
+    margin-bottom: 10px;
+}
+.container{
+    /* background-color: blue; */
+    padding:3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* width: 70%; */
+    height: 100vh;
+    /* background-image: -webkit-linear-gradient(50deg, rgb(224, 213, 193) 50%, #ffe2e2 50%); */
+}
+
+.studentDetails{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: orange;
+    width: 90%;
+    padding: 3rem;
+    /* padding-top:9rem; */
+    height: 35vh;
+    background: rgba(0, 0, 0, 0.381);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    
+}
+.studentInfo{
+    background-color: #ffffff74;
+    border-radius:10px;
+    padding:1rem;
+}
+.student{
+    font-size: larger;
+    padding: 1rem;
+    padding-left: 0;
+    /* border-bottom:2px solid red; */
+    background: transparent;
+    
+}
+
+
+.booksIssued{
+    background-color: rgba(0, 0, 0, 0.381);
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding:3rem;
+    border-radius: 10px;
+    height:50vh;
+
+}
+.bookContainer{
+    background-color: orange;
+    display: flex;
+    justify-content: flex-start;
+    /* padding:1rem;
+     */
+     height: 3rem;
+     background: transparent;
+     
+}
+.booksDetails{
+    /* border-bottom: 2px solid red; */
+    /* padding:1rem; */
+    background-color: #ffffff6c;
+    height: 35vh;
+    overflow: auto;
+    overflow-y: auto;
+    border-radius: 10px;
+    /* width: 50rem; */
+    /* background: transparent; */
+    
+
+}
+.book{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* border-bottom:1px solid rgb(106, 69, 0) ; */
+    width: 20rem;
+    height:3rem;
+    background: transparent;
+    padding:1rem;
+    border: 1px solid rgb(106, 69, 0);
+}
+
+.bottom{
+    background-color: rgb(197, 157, 98);
+    height: 50px;
+    padding: 2rem;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+
+    
+}
+.studentLogout{
+    height: 2rem;
+    width: 8rem;
+    cursor: pointer;
+    background-color: orange;
+    border: none;
+    outline: none;
+
+}
+.penalties{
+    /* border-bottom: 2px solid orange; */
+    padding: 1rem;
+}
+.logoutContainer{
+    padding:1rem;
+}
+.studlogo{
+    height: 200px;
+    width: 200px;
+}
+
+
+table{
+    height: 100%;
+    background-color: #0000004d;
+    width: 100%;
+    
+}
+.tableHeader{
+    /* border:5px solid red; */
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding : 0.7rem 0;
+    position: sticky;
+    top: 0;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+
+}
+
+.tableData{
+    /* border:2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: orange;
+    padding : 0.7rem 0;
+    border-bottom:1px solid #000;
+    /* box-shadow: 1px 4px 10px 4px #000; */
+    cursor: pointer;
+
+}
+.tableData:hover{
+    background-color: rgb(227, 154, 19);
+}
+
+.dataItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 10rem;
+    height:2rem;
+    /* border: 2px solid blue; */
+    
+}
+
+.tableLabel{
+    width: 10rem;
+    /* background-color: red; */
+}
+#returnBookBtn{
+    height: 2rem;
+    width: 5rem;
+    color: white;
+    background-color: rgb(77, 77, 227);
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    transition: all 0.03s ease-in-out;
+    cursor: pointer;
+}
+#returnBookBtn:hover{
+    background-color: blueviolet;
+}
+
+
+    @media only screen and (max-width: 850px) {
+
+        .student{
+            font-size: small;
+            padding:0.5rem;
+        }
+        .studentInfo{
+            height: 7.9rem;
+            padding:0.5rem;
+        }
+        .logoutContainer{
+            padding:0.5rem;
+        }
+        .studentDetails{
+            height: 22vh;
+            align-items: center;
+        }
+        .booksDetails{
+            overflow-x: auto;
+        }
+        .booksIssued{
+            overflow-x: auto;
+        }
+        .studlogo{
+            height: 150px;
+            width: 150px;
+        }
+    
+    }
+
+    @media only screen and (max-width: 670px) {
+
+        .student{
+            font-size: small;
+            padding:0.5rem;
+        }
+        .studentInfo{
+            height: 7.9rem;
+            padding:0.5rem;
+        }
+        .logoutContainer{
+            padding:0.5rem;
+        }
+        .studentDetails{
+            /* flex-wrap: wrap; */
+            padding: 1rem;
+            height: 55vh;
+            flex-direction: column;
+
+        }
+        .booksDetails{
+            overflow-x: auto;
+        
+        
+        }
+        .booksIssued{
+            padding: 1rem;
+            
+        }
+        .studlogo{
+            height: 50px;
+            width: 50px;
+        }
+    
+    }
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* scroll bar -------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px; 
+  }
+  ::-webkit-scrollbar-track:hover {
+    background-color: transparent   ;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: transparent; 
+  }
+  

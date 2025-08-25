@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="../output.css"> -->
+    <link rel="stylesheet" href="css/manageUsers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/adminDashboard.css">
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="container">
+        <div class="operationsContainer">
+            <div class="op">
+                <div class="oplink">
+                    <a class="gotobtn" href="/issueBook">ISSUE BOOKS</a>
+                </div>
+            </div>
+            <div class="op">
+                <div class="oplink">
+                    <a class="gotobtn" href="/manageBooks">MANAGE BOOKS</a>
+
+                </div>
+            </div>
+            <div class="op">
+                <div class="oplink">
+                    <a class="gotobtn" href="/manageUsers">MANAGE USERS</a>
+
+                </div>
+            </div>
+            <div class="op">
+                <a class="gotobtn" href="adminLogs">LOGS</a>
+
+            </div>
+            <form action="/adminLogin">
+                <button class="lgbtn" id="lgbtn" type="submit">Logout</button>
+            </form>
+        </div>
+
+        <div class="pagecontainer">
+
+
+
+            <div class="wrapper ">
+                <div class="optionContainer">
+                    <button id="addBookBtn" onclick="openPopUpAddBook()">Add User</button>
+                    <button id="editBookBtn" onclick="openPopUp()"><i
+                            class="editBook fa-solid fa-pen-to-square" id="editbtn"></i></button>
+                </div>
+                <div class="addBookContainer" id="addBookCnt">
+                    <form action="/manageUsers/addUser" method="post" class="bookAdder bookAdderOpen" id="addNewBook">
+                        <input type="text" name="fname" id="" placeholder="First Name" required autocomplete="off">
+                        <input type="text" name="lname" id="" placeholder="Last Name" required autocomplete="off">
+                        <input type="text" name="usn" id="" placeholder="Usn" required autocomplete="off">
+                        <input type="email" name="email" id="" placeholder="Email" required autocomplete="off">
+                        <input type="number" name="pnumber" id="" placeholder="Phone Number" required
+                            autocomplete="off">
+                        <input type="text" name="address" id="" placeholder="Adderss" required autocomplete="off">
+                        <input type="text" name="pass" placeholder="Password" required autocomplete="off">
+                        <button name="addbk" value="1" type="submit" id="addUser">Add</button>
+                        <button type="submit" id="closeAddWin" class="bookAdderClose"
+                            onclick="closePopUpAddBook()">close</button>
+                    </form>
+
+                </div>
+                <div class="showBooksContainer ">
+                    <table>
+                        <tr class="tableHeader">
+                            <th class="tableLabel">USN</th>
+                            <th class="tableLabel">First Name</th>
+                            <th class="tableLabel">Last Name</th>
+                            <th class="tableLabel">Email</th>
+                            <th class="tableLabel">Phone Number</th>
+                            <th class="tableLabel">Address</th>
+                            <th class="tableLabel">Action</th>
+                        </tr>
+                        <% data.forEach(item=> { %>
+                            <tr class="tableData">
+                                <td class="dataItem ">
+                                    <%= item.usn %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.first_name %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.last_name %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.email %>
+                                </td>
+                                <td class="dataItem ">
+                                    <%= item.phone_number %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.address%>
+                                </td>
+                                <td class="dataItem">
+                                    <form class="popup" id="popup" action="/manageUsers/editUserPost" method="post">
+                                        <!-- <button id="editBookBtn"  onclick="openPopUp()" ><i class="editBook fa-solid fa-pen-to-square"></i></button> -->
+                                        <!-- <input type="number" name="bookId" placeholder="BookID"> -->
+                                        <input type="text" name="usn" id="" placeholder="Enter Usn" required
+                                            autocomplete="off">
+                                        <input type="text" name="fname" id="" placeholder="Enter Name" required
+                                            autocomplete="off">
+                                        <input type="text" name="lname" id="" placeholder="Last Name" required
+                                            autocomplete="off">
+                                        <input type="email" name="email" id="" placeholder="Email" required
+                                            autocomplete="off">
+                                        <input type="number" name="pnumber" id="" placeholder="Phone Number" required
+                                            autocomplete="off">
+                                        <input type="text" name="address" id="" placeholder="Address" required
+                                            autocomplete="off">
+                                        <button class="submitbtn" id="sbmtbtn" type="submit">Confirm</button>
+                                        <button id="closeAddWin" onclick="closePopUp()">close</button>
+                                    </form>
+                                    <form action="/manageUsers/deleteUserPost" method="post">
+                                        <input type="hidden" name="usn" value="<%= item.usn %>">
+                                        <button id="deleteBookBtn" name='deleteBook'><i
+                                                class="deleteBook fa-solid fa-trash" id="dltbk"></i></button>
+                                    </form>
+                                    <form action="/manageUsers/generatePdf" method="post">
+                                        <!-- <input type="hidden" name="usn" id="" placeholder="Enter Usn" required autocomplete="off"> -->
+                                        <input type="hidden" name="fname" value="<%= item.first_name %>">
+                                        <input type="hidden" name="lname" value="<%= item.last_name %>">
+                                        <input type="hidden" name="email" value=" <%= item.email %>">
+                                        <input type="hidden" name="pnumber" value="<%= item.phone_number %>">
+                                        <input type="hidden" name="address" value=" <%= item.address%>">
+                                        <button id="pdfbtn" class="text-2xl text-purple-800"><i
+                                                class="fa-regular fa-address-card"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        let bookAdder = document.getElementById('addNewBook')
+        function openPopUpAddBook() {
+            bookAdder.classList.add('bookAdderVisible');
+        }
+        function closePopUpAddBook() {
+            bookAdder.classList.remove('bookAdderVisible');
+
+        }
+        let popup = document.getElementById('popup');
+        function openPopUp() {
+            popup.classList.add("openpopup");
+        }
+        function closePopUp() {
+            popup.classList.remove("openpopup");
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/manageBooks.css">
+    <link rel="stylesheet" href="css/issuebook.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/adminDashboard.css">
+
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="container">
+        <div class="operationsContainer">
+            <div class="op">
+                <div class="oplink">
+                    <a class="gotobtn" href="/issueBook">ISSUE BOOKS</a>
+                </div>
+            </div>
+            <div class="op">
+                <div class="oplink">
+                    <a class="gotobtn" href="/manageBooks">MANAGE BOOKS</a>
+
+                </div>
+            </div>
+            <div class="op">
+                <div class="oplink">
+                    <a class="gotobtn" href="/manageUsers">MANAGE USERS</a>
+
+                </div>
+            </div>
+            <div class="op">
+                <a class="gotobtn" href="adminLogs">LOGS</a>
+
+            </div>
+            <form action="/adminLogin">
+                <button class="lgbtn" id="lgbtn" type="submit">Logout</button>
+            </form>
+        </div>
+        <div class="pagecontainer">
+
+
+            <div class="wrapper">
+                <div class="showBooksContainer">
+                    <table>
+                        <tr class="tableHeader">
+                            <th class="tableLabel">ID</th>
+                            <th class="tableLabel">Name</th>
+                            <th class="tableLabel">ISBN</th>
+                            <th class="tableLabel">Genre</th>
+                            <th class="tableLabel">Publication Year</th>
+                            <th class="tableLabel">Avaliable Copies</th>
+                            <th class="tableLabel">Total Copies</th>
+                            <th class="tableLabel">Action</th>
+
+                        </tr>
+                        <% data.forEach(item=> { %>
+                            <tr class="tableData">
+                                <td class="dataItem">
+                                    <%= item.book_id %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.title %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.isbn %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.genre %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.publication_year %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.available_copies %>
+                                </td>
+                                <td class="dataItem">
+                                    <%= item.total_copies %>
+                                </td>
+                                <td class="dataItem dataItemBtn">
+                                    <form style="z-index: 50 ; display: flex;" action="/issueBook/issue" method="post">
+                                        <input type="hidden" name="bookId" value="<%= item.book_id %>">
+                                        <input style="width: 6rem;" id="issueBookInput" type="text" name="usn" placeholder="USN" />
+                                        <button style="background-color: green; color: #fff; width: 3rem; z-index: 1;"
+                                            id="deleteBookBtn" name='deleteBook'>ISSUE</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let bookAdder = document.getElementById('addNewBook')
+        function openPopUpAddBook() {
+            bookAdder.classList.add('bookAdderVisible');
+        }
+        function closePopUpAddBook() {
+            bookAdder.classList.remove('bookAdderVisible');
+
+        }
+        let popup = document.getElementById('popup');
+        function openPopUp() {
+            popup.classList.add("openpopup");
+        }
+        function closePopUp() {
+            popup.classList.remove("openpopup");
+
+        }
+
+    </script>
+</body>
+
+</html>

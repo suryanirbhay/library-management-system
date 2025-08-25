@@ -1,0 +1,271 @@
+*{
+    padding: 0;
+    margin: 0;  
+    font-family: monospace;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+.container{
+    background-color: transparent;
+    /* padding: 2rem; */
+
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #23a6d5, #ee7752, #23a6d5);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+    overflow: hidden;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 2rem; */
+    height: 80vh;
+    width:100%;
+    /* border: 2px solid red; */
+    /* background-color: rgba(0, 0, 0, 0.276); */
+    border-radius:5px;
+}
+.showBooksContainer{
+    height: 50vh;
+    width: 100%;
+    overflow-y: auto ;
+    border-radius: 6px;
+}
+table{
+    height: 100%;
+    /* background-color: #0000004d; */
+    /* position: relative; */
+    width: 100%;
+    
+}
+
+.tableHeader{
+    /* border:5px solid red; */
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding : 0.7rem 0;
+    position: sticky;
+    top: 0;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+
+}
+.tableData{
+    /* border:2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: orange;
+    padding : 0.7rem 0;
+    border-bottom:1px solid #000;
+    /* box-shadow: 1px 4px 10px 4px #000; */
+    cursor: pointer;
+
+}
+
+.dataItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 10rem;
+    height:2rem;
+    /* border: 2px solid blue; */
+    
+}
+
+.tableLabel{
+    width: 10rem;
+    /* background-color: red; */
+}
+
+.optionContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+.bookAdderOpen{
+    background-color: rgba(3, 3, 49, 0.32);
+    position: absolute;
+    top: -10rem;
+    left: 37%;
+    height: 75vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 2rem; */
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    transform: scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s , top 0.4s ;
+    transition-property: all;
+}
+.bookAdderVisible{
+    top: 20%;
+    left: 35%;    
+    z-index: 10;
+    transform: scale(1);
+    visibility: visible;
+}
+button{
+    border-radius: 5px;
+    border:none;
+    /* margin:5px; */
+    /* background-color: rgb(17, 255, 0); */
+    cursor: pointer;
+    /* height: 2rem; */
+    /* width: 5.5rem; */
+    outline: none;
+    
+}
+input{
+    width: 14rem;
+    height: 2rem;
+    font-size: larger;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom:3px solid blue ;
+    color: #fff;
+}
+input::placeholder{
+    color: #aaaaaa;
+}
+
+#editBookBtn{
+    background-color: rgb(20, 20, 240);
+    width:5rem;
+    margin-left: 1rem;
+  
+}
+#editBookBtn:hover{
+    border: 2px solid white;
+}
+#closeAddWin{
+    background-color: red;
+    height: 2rem;
+    width: 6rem;
+
+}
+#addBookBtn{
+    background-color: rgb(16, 189, 16);
+    height: 3rem;
+    width: 6rem;
+}
+#addUser{
+    background-color:rgb(16, 189, 16) ;
+    height: 2rem;
+    width: 6rem;
+}
+.deleteBook{
+    color: red;
+    font-size: x-large;
+
+}
+.submitbtn{
+    background-color: greenyellow;
+    height: 2rem;
+    width: 6rem;
+}
+#editbtn{
+    font-size: 1rem;
+}
+
+::-webkit-scrollbar {
+    width: 7px; /* Width of the scrollbar */
+  }
+  
+  /* Define the styles for the scrollbar handle or thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #3498db; /* Color of the scrollbar thumb */
+    /* border-radius: 3px; Border radius of the thumb */
+  }
+  
+  /* Define the styles for the scrollbar track on hover */
+  ::-webkit-scrollbar-track {
+    background-color: #203f54; /* Color of the track on hover */
+  }
+  
+  /* Define the styles for the scrollbar handle or thumb on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #2980b9; /* Color of the thumb on hover */
+  }
+
+
+  input:focus{
+    color: white;
+  }
+  
+.popup{
+    background-color: rgba(3, 3, 49, 0.32);
+    position: absolute;
+    top: -10rem;
+    left: 37%;
+    height: 60vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 2rem; */
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    transform: scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s , top 0.4s ;
+    transition-property: all;
+}
+
+.openpopup{
+    top: 20%;
+    left: 35%;    
+    transform: scale(1);
+    visibility: visible;
+    
+}
+.popup form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.popup form *{
+    margin: 0.7rem;
+}
+.tableData:hover{
+    background-color: rgb(227, 154, 19);
+}
+
+#sbmtbtn{
+    background-color: greenyellow;
+}

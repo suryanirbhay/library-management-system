@@ -1,0 +1,332 @@
+*{
+    padding: 0;
+    margin: 0;  
+    font-family: 'Lato', sans-serif;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+.container{
+    background-color: transparent;
+    /* padding: 2rem; */
+
+}
+body {
+	/* background: linear-gradient(-45deg, #ee7752, #23a6d5, #ee7752, #23a6d5); */
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+    overflow: hidden;
+}
+html {
+    height:100%;
+}
+ 
+body {
+    margin:0;
+}
+ 
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+}
+ 
+.bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+}
+ 
+.bg3 {
+    animation-duration:5s;
+}
+ 
+.content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+}
+ 
+h1 {
+    font-family:monospace;
+}
+ 
+@keyframes slide {
+    0% {
+        transform:translateX(-25%);
+    }
+ 
+    100% {
+        transform:translateX(25%);
+    }
+}
+
+
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 2rem; */
+    height: 80vh;
+    width:100%;
+    /* border: 2px solid red; */
+    /* background-color: rgba(0, 0, 0, 0.276); */
+    border-radius:5px;
+}
+/* 
+.addBookContainer,.optionContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:2rem;
+
+} */
+
+.optionContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+.bookAdderOpen{
+    background-color: rgba(3, 3, 49, 0.32);
+    position: absolute;
+    top: -10rem;
+    left: 37%;
+    height: 75vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 2rem; */
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    transform: scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s , top 0.4s ;
+    transition-property: all;
+    z-index:100;
+}
+.bookAdderVisible{
+    top: 20%;
+    left: 35%;    
+    transform: scale(1);
+    visibility: visible;
+    z-index: 50 ;
+}
+
+
+button{
+    border-radius: 5px;
+    border:none;
+    /* margin:5px; */
+    background-color: rgb(17, 255, 0);
+    cursor: pointer;
+    height: 2rem;
+    width: 5.5rem;
+    
+}
+input{
+    width: 14rem;
+    height: 2rem;
+    font-size: larger;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom:3px solid blue ;
+    color: #fff;
+}
+input::placeholder{
+    color: #aaaaaa;
+}
+
+#closeAddWin{
+    background-color: red;
+}
+
+
+.showBooksContainer{
+    height: 50vh;
+    width: 100%;
+    overflow-y: auto ;
+    border-radius: 6px;
+    background:transparent;
+    border-radius:10px ;
+    overflow-x: hidden;
+    border: none;
+}
+.popup{
+    background-color: rgba(3, 3, 49, 0.32);
+    position: absolute;
+    top: -10rem;
+    left: 37%;
+    height: 60vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 2rem; */
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    transform: scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s , top 0.4s ;
+    transition-property: all;
+    z-index: 5;
+
+}
+table{
+    height: 100%;
+    /* background-color: #0000004d; */
+    width:100%;
+    /* overflow:hidden; */
+    
+}
+.tableHeader{
+    /* border:5px solid red; */
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding : 0.7rem 0;
+    position: sticky;
+    top: 0;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    /* z-index: 10; */
+
+}
+
+.tableData{
+    /* border:2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: orange;
+    padding : 0.7rem 0;
+    border-bottom:1px solid #000;
+    /* box-shadow: 1px 4px 10px 4px #000; */
+    cursor: pointer;
+    z-index: 50;
+
+}
+.tableData:hover{
+    background-color: rgb(227, 154, 19);
+}
+
+.dataItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 10rem;
+    height:2rem;
+    /* z-index: 1; */
+    /* border: 2px solid blue; */
+    
+}
+
+.tableLabel{
+    width: 10rem;
+    /* background-color: red; */
+}
+
+.editBook{
+    color: rgb(85, 141, 1);
+    font-size: x-large;
+    margin-right: 5px;
+}
+.deleteBook{
+    color: red;
+    font-size: x-large;
+
+}
+
+
+
+.openpopup{
+    top: 20%;
+    left: 35%;    
+    transform: scale(1);
+    visibility: visible;
+    
+    
+}
+.popup form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.popup form *{
+    margin: 0.7rem;
+}
+#popup{
+    z-index: 5;
+    /* backdrop-filter: blur(30px); */
+}
+#deleteBookBtn{
+    background: none;
+    z-index: 1;
+}
+
+#editBookBtn{
+    background-color: rgb(0, 0, 255);
+    width:5rem;
+    margin-left: 1rem;
+    color: orange;
+}
+
+#issueBookInput{
+    font-weight: lighter;
+    font-size: 0.9rem;
+}
+#dltbk{
+    color: red;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 7px; /* Width of the scrollbar */
+  }
+  
+  /* Define the styles for the scrollbar handle or thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #3498db; /* Color of the scrollbar thumb */
+    /* border-radius: 3px; Border radius of the thumb */
+  }
+  
+  /* Define the styles for the scrollbar track on hover */
+  ::-webkit-scrollbar-track {
+    background-color: #203f54; /* Color of the track on hover */
+  }
+  
+  /* Define the styles for the scrollbar handle or thumb on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #2980b9; /* Color of the thumb on hover */
+  }

@@ -1,0 +1,10 @@
+input::placeholder{
+    color: black;
+}
+input{
+    color: black;
+}
+
+.tableHeader{
+    z-index: 100;
+}
